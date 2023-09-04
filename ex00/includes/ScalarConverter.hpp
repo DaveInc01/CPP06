@@ -31,4 +31,6 @@ private:
 	// static double	_double;
 };
 
+std::string trim_white_space(const std::string& str);
+
 #endif

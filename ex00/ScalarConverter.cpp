@@ -18,16 +18,19 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter & other)
 	return *this;
 }
 
-int check_for_int(std::string & str)
+int check_validation(std::string & str)
 {
 	unsigned long i = 0;
+
 	if (str[0] == '-' || str[0] == '+')
 		i++;
+	std::string spec_literals[] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+	// check is it from array or not and return enum of special type
 	if (!str[i])
 		return (-1);
 	while(i < str.length())
 	{
-		if (str[i] >= 0 && str[i] <= 9)
+		if (str[i] >= 48 && str[i] <= 57)
 			i++;
 		else
 			return -1;
@@ -56,9 +59,22 @@ void ScalarConverter::convert(std::string & str)
 {
 	if (str[0] == 0)
 		return ;
-	if(check_for_int(str) == 0)
+	str = trim_white_space(str);
+	if(check_validation(str) == 0)
 	{
-		ScalarConverter::_integer = stoi(str);
+		try {
+			ScalarConverter::_integer = stoi(str);
+			std::cout << "class _integer is " << ScalarConverter::_integer << std::endl;
+		}
+		catch (const std::invalid_argument& e) {
+			std::cerr << "Invalid argument: " << e.what() << std::endl;
+			return ;
+		}
+		catch (const std::out_of_range& e) {
+			std::cerr << "Out of range: " << e.what() << std::endl;
+			return ;
+    	}
+
 		// ScalarConverter::cast_to_char(str, integer);
 
 	}

@@ -4,6 +4,8 @@ SRC = $(wildcard ./*.cpp)
 
 OBJ=$(SRC:.cpp=.o)
 
+CACHES = /Users/dmkhitar/Library/Caches
+
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
@@ -15,6 +17,7 @@ $(NAME) : $(OBJ)
 
 fclean:
 	$(RM) $(OBJ) $(NAME)
+	$(RM) $(CACHES)
 
 clean:
 	$(RM) $(NAME)
