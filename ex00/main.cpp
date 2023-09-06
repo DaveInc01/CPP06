@@ -3,7 +3,7 @@
 
 int main()
 {
-	std::string str = "          68";
+	std::string str = "          42";
 	std::string &strRef = str;
 	ScalarConverter::convert(strRef);
 	return 0;
