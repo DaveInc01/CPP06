@@ -22,6 +22,7 @@ public:
 	ScalarConverter & operator=(const ScalarConverter &);
 	~ScalarConverter(){};
 public:
+	static void		print_data(int);
 	static void 	convert(std::string &);
 	static 	void	cast_from_char(std::string &);
 	static	void	cast_from_int(std::string &);
@@ -35,7 +36,7 @@ private:
 };
 
 std::string trim_white_space(const std::string& str);
-int str_in_arr(std::string str, std::string arr[]);
+int str_in_arr(std::string str, std::string arr[], int length);
 int check_is_number(std::string str);
 int check_is_char (std::string str);
 

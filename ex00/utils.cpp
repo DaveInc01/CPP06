@@ -13,13 +13,10 @@ std::string trim_white_space(const std::string& str) {
     return str.substr(start, end - start + 1);
 }
 
-int str_in_arr(std::string str, std::string *arr)
+int str_in_arr(std::string str, std::string *arr, int length)
 {
-    // int length = sizeof(arr) / sizeof(arr[0]);
-
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < length; i++)
     {
-        std::cout << arr[i] << std::endl;
         if (arr[i] == str)
             return 0;
     }

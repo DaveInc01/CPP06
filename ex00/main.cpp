@@ -1,6 +1,5 @@
 #include "includes/ScalarConverter.hpp"
 
-
 int main()
 {
 	std::string str = "          42";
