@@ -23,6 +23,16 @@ int str_in_arr(std::string str, std::string *arr, int length)
     return (-1);
 }
 
+int place_in_arr(std::string str, std::string *arr, int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        if (arr[i] == str)
+            return i;
+    }
+    return (-1);
+}
+
 int check_is_number(std::string str)
 {
     int is_point = 0;
@@ -39,7 +49,7 @@ int check_is_number(std::string str)
             is_point++;
             i++;
         }
-        else if (str[i] == 'f' && i == str.length() - 1)
+        else if (str[i] == 'f' && i == str.length() - 1 && str.length() > 1)
         {
             is_float = 1;
             i++;
@@ -65,4 +75,17 @@ int check_is_char (std::string str)
             return (0);
     }
     return -1;
+}
+
+int is_displayable(int tmp)
+{
+    int displayable;
+	//casting int->char
+	if (tmp >= 32 && tmp <= 127)
+		displayable = 0;
+	else if (tmp >= 0 && tmp <= 31)
+		displayable = 1;
+	else
+		displayable = -1;
+    return (displayable);
 }
