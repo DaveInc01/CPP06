@@ -17,7 +17,6 @@ $(NAME) : $(OBJ)
 
 fclean:
 	$(RM) $(OBJ) $(NAME)
-	$(RM) $(CACHES)
 
 clean:
 	$(RM) $(NAME)

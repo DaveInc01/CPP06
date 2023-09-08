@@ -5,7 +5,6 @@
 #include <string>
 #include <array>
 
-
 enum type {
 	int_e,
 	char_e,
@@ -16,7 +15,6 @@ enum type {
 
 class ScalarConverter
 {
-public:
 	ScalarConverter(){};
 	ScalarConverter( const ScalarConverter &);
 	ScalarConverter & operator=(const ScalarConverter &);
@@ -31,8 +29,8 @@ public:
 	static	void	cast_from_double(std::string &);
 	static	void	cast_from_special(std::string &);
 private:
-	static char	_character;
-	static int 	_integer;
+	static char		_character;
+	static int 		_integer;
 	static float	_float;
 	static double	_double;
 	static std::string spec_literals[6];
