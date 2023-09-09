@@ -1,12 +1,12 @@
 #include "./includes/Serializer.hpp"
 
-ScalarConverter::ScalarConverter(const ScalarConverter & copy)
+Serializer::Serializer(const Serializer & copy)
 {
 	if(this != &copy)
 		*this = copy;
 }
 
-ScalarConverter & ScalarConverter::operator=(const ScalarConverter & other)
+Serializer & Serializer::operator=(const Serializer & other)
 {
 	if(this != &other)
 		*this = other;
@@ -15,9 +15,14 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter & other)
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
-    try
-    {
-        uintptr_t x;
-        x = static_cast <uintptr_t> (ptr);
-    }
+    uintptr_t x;
+    x = reinterpret_cast <uintptr_t> (ptr);
+    return (x);
+}
+
+Data* Serializer::deserialize(uintptr_t raw)
+{
+    Data* x;
+    x = reinterpret_cast <Data*> (raw);
+    return (x);
 }
