@@ -7,6 +7,7 @@ class Base
 {
 public:
     virtual ~Base(){};
+    void identify(Base* p);
 };
 
 #endif
