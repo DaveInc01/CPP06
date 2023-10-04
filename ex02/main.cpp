@@ -7,7 +7,7 @@ Base * generate(void)
 {
     Base *tmp = NULL;
     std::srand(static_cast<unsigned>(std::time(nullptr)));
-    
+
     int random = std::rand() % 3;
     switch(random)
     {
@@ -27,6 +27,7 @@ void identify(Base* p)
     Base * tmpA = p;
     Base * tmpB = p;
     Base * tmpC = p;
+
     tmpA = dynamic_cast <A *> (p);
     if (tmpA)
         std::cout << "The class type is A\n";
@@ -40,14 +41,42 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    
+    Base& tmpA = p;
+    Base& tmpB = p;
+    Base& tmpC = p;
+
+    try
+    {
+        tmpB = dynamic_cast <B&> (p);
+        std::cout << "The class type is B\n";
+    }
+    catch (std::bad_cast& e) {}
+    try
+    {
+        tmpA = dynamic_cast <A&> (p);
+        std::cout << "The class type is A\n";
+    }
+    catch (std::bad_cast& e) {}
+
+
+    try
+    {
+        tmpC = dynamic_cast <C&> (p);
+        std::cout << "The class type is C\n";
+    }
+    catch (std::bad_cast& e) {}
 }
+
 
 int main()
 {
-    Base *lyuboy = generate();
-    identify(lyuboy);
-    
-
+    // Dynamic cast using referance
+    A a;
+    Base &br = dynamic_cast <Base &>(a);
+    identify(br);
+    // Dynamic cast usin pointers
+    Base *rand = generate();
+    identify(rand);
+    delete rand;
+    return 0;
 }
-

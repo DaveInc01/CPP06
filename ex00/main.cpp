@@ -2,9 +2,9 @@
 
 int main()
 {
-	std::string str = " 100 ";
+	std::string str = "   nan ";
 	std::string &strRef = str;
 	ScalarConverter::convert(strRef);
-	
+
 	return 0;
 }
